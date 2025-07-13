@@ -29,8 +29,6 @@ npx playwright show-report
 bQ-academy-saucedemo/
 ├── tests/                  # Testfälle (Login, Checkout, etc.)
 │   ├── login.spec.ts
-│   ├── singleItemPurchaseFlow.spec.ts
-│   ├── cartOperations.spec.ts
 │   └── checkout.spec.ts
 ├── pages/                  # Page Objects für POM-Architektur
 │   ├── LoginPage.ts
