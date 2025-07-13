@@ -11,22 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+      - name: Code auschecken
+        uses: actions/checkout@4
 
-      - name: Install dependencies
+      - name: Node installieren
+        uses: actions/setup-node@4
+        with:
+          node-version: '20'
+
+      - name: Abhängigkeiten installieren
         run: npm ci
 
-      - name: Install browsers
+      - name: Playwright-Browser installieren
         run: npx playwright install --with-deps
 
-      - name: Run tests
+      - name: Tests ausführen
         run: npx playwright test
-
-      - name: Upload HTML report
-        uses: actions/upload-artifact@v3
-        with:
-          name: playwright-report
-          path: playwright-report
