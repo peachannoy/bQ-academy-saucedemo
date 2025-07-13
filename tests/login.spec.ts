@@ -1,20 +1,14 @@
 import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
+import { users, LoginResult } from '../utils/testData';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('login with correct credentials', async ({ page }) => {
+  const loginPage = new LoginPage(page);
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+  await loginPage.goto();
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+  await loginPage.login(users.validUser.username, users.validUser.password)
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(
-    page.getByRole('heading', { name: 'Installation' }),
-  ).toBeVisible();
+  expect(await loginPage.assertSuccessfulLogin()).toBe(LoginResult.Success);
+  await page.waitForTimeout(5000);
 });
