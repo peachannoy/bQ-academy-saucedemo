@@ -34,6 +34,7 @@ bQ-academy-saucedemo/
 ├── utils/                  # Hilfsfunktionen und Testdaten
 │   ├── testData.ts
 │   └── helpers.ts
+├── package-lock.json       # Exakte Versionen der Abhängigkeiten 
 ├── package.json            # Abhängigkeiten und Scripts
 ├── playwright.config.ts    # Playwright-Konfiguration
 └── README.md               # Projektdokumentation
