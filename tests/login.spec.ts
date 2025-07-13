@@ -7,8 +7,21 @@ test('login with correct credentials', async ({ page }) => {
 
   await loginPage.goto();
 
-  await loginPage.login(users.validUser.username, users.validUser.password)
+  //Login using correct credentials
+  await loginPage.login(users.validUser.username, users.validUser.password);
 
   expect(await loginPage.assertSuccessfulLogin()).toBe(LoginResult.Success);
-  await page.waitForTimeout(5000);
+});
+
+test('login with incorrect credentials', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+
+  await loginPage.goto();
+
+  //Login using incorrect password
+  await loginPage.login(users.validUser.username, users.invalidUser.password);
+
+  expect(await loginPage.assertSuccessfulLogin()).toBe(
+    LoginResult.InvalidCredentials,
+  );
 });
