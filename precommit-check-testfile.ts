@@ -1,7 +1,7 @@
 const  userName="max"
 
 function greet(name:string){
-console.log(  "Hallo, " +name)
+console.log(    "Hallo, " +name)
 }
 
 greet(userName)
