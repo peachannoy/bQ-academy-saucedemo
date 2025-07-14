@@ -50,14 +50,12 @@ bQ-academy-saucedemo/
 ## Reporting an den Kunden
 
 ### Was wurde bereits umgesetzt?
-
-### Was steht noch aus?
-
 #### Hohe Priorität
 
 - Login-Test mit validen Daten
 - Login-Test bei invaliden Daten
 - Checkout-Prozess
+### Was steht noch aus?
 
 #### Mittlere Priorität
 
