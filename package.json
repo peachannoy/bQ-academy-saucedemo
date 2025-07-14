@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "format": "prettier --write ."
+    "lint-fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write .",
+    "check": "npm run lint && npm run format"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +21,14 @@
     "eslint": "^9.31.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-playwright": "^2.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.6.2"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
